@@ -4,7 +4,7 @@
   become: yes # Utilisez 'become' pour obtenir les privilèges root
 
   tasks:
-    - name: Créer / Modifier le fichier /etc/ansibleextravars avec les extra vars
+    - name: display
       copy:
         dest: "/etc/ansibleextravars"
         content: |
