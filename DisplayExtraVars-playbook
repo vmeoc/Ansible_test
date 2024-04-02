@@ -1,0 +1,16 @@
+---
+- name: Sauvegarder les extra vars dans un fichier sur les hôtes cibles
+  hosts: all
+  become: yes # Utilisez 'become' pour obtenir les privilèges root
+
+  tasks:
+    - name: Créer / Modifier le fichier /etc/ansibleextravars avec les extra vars
+      copy:
+        dest: "/etc/ansibleextravars"
+        content: |
+          key1: "{{ key1 }}"
+          key2: "{{ key2 }}"
+          # Ajoutez ou modifiez les clés et valeurs selon vos besoins
+        owner: root
+        group: root
+        mode: '0644'
